@@ -8,6 +8,7 @@ import time
 import multiprocessing
 import threading
 import traceback
+import os
 
 app = Flask(__name__)
 cache = {}
@@ -150,7 +151,8 @@ def run():
     p = multiprocessing.Process(target=cache_worker)
     p.start()
 
-    app.run(debug=False)
+    port = os.getenv('PORT', 5000)
+    app.run(debug=False, port=port)
 
 if __name__=="__main__":
     run()
