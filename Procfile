@@ -1,1 +1,1 @@
-web: gunicorn combined_api:run()
+web: gunicorn "combined_api:run()"
