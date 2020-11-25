@@ -141,7 +141,7 @@ def get(section):
     return jsonify(data)
     '''
 
-if __name__=="__main__":
+def run():
     # Load initial data
     load_data()
 
@@ -149,4 +149,7 @@ if __name__=="__main__":
     p = multiprocessing.Process(target=cache_worker)
     p.start()
 
-    app.run(debug=True)
+    app.run(debug=False)
+
+if __name__=="__main__":
+    run()
