@@ -97,7 +97,7 @@ def load_data():
             cache[cat] = products
             
 
-@app.route('/data/<section>', methods={'GET'})
+@app.route('/products/<section>', methods={'GET'})
 def get(section):
     with lock:
         return jsonify(cache[section])
