@@ -1,3 +1,12 @@
+click==7.1.2
+cryptography==2.6.1
 Flask==1.1.2
+Flask-Cache==0.13.1
+Flask-Caching==1.9.0
+gunicorn==19.10.0
+Jinja2==2.11.2
+macholib==1.5.1
+MarkupSafe==1.1.1
+modulegraph==0.10.4
+urllib3==1.26.2
 Werkzeug==1.0.1
-gunicorn==19.9.0
