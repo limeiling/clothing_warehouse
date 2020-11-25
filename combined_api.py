@@ -142,6 +142,7 @@ def get(section):
     '''
 
 def run():
+    print("Initializing with data")
     # Load initial data
     load_data()
 
