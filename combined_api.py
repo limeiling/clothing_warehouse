@@ -10,7 +10,7 @@ import threading
 import traceback
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='build/', static_url_path='/')
 cache = {}
 lock = threading.Lock()
 categories = ['jackets','shirts','accessories']
@@ -95,7 +95,15 @@ def load_data():
 
         with lock:
             cache[cat] = products
-            
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
+
+@app.route('/<path:path>')
+def static_file(path):
+    return app.send_static_file(path)            
 
 @app.route('/products/<section>', methods={'GET'})
 def get(section):
