@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import axios from "axios";
-import Categories from './Categories/Categories'
+import Cockpit from './Cockpit/Cockpit'
+import Products from './Products/Products'
 
 const App = () => {
   const [catergories, setCatergory] = useState(null);
@@ -14,38 +15,22 @@ const App = () => {
         setStatus(true);
       });
   };
-  console.log(catergories)
-
   return (
     <div>
-      <Categories
+      <Cockpit
         handleClick={() => fetchProductData("jackets")}
         text='Jacket'
       />
-      <Categories
+      <Cockpit
         handleClick={() => fetchProductData("shirts")}
         text='Shirt'
       />
-      <Categories
+      <Cockpit
         handleClick={() => fetchProductData("accessories")}
         text='Accessories'
       />
-      {catergories === "ResponseEmptyError" ? <p>NO RESPONSE</p> : <ul>
-        {status && catergories.map((catergory, index) => {
-          return (
-
-            <li className="details" key={index}>
-              <p>name: {catergory.name}</p>
-              <p>ID:{catergory.id}</p>
-              <p>Type:{catergory.type}</p>
-              <p>price:{catergory.price}</p>
-              <p>color:{catergory.color}</p>
-
-            </li>)
-
-        })}
-      </ul>
-      }
+      <Products loaded={status}
+        catergories={catergories} />
 
     </div>
   )

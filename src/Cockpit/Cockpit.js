@@ -20,7 +20,7 @@ width: 250 px;
   }
 `;
 	
-const categories = (props) => {
+const cockpit = (props) => {
     return (
       <StyledButton onClick={props.handleClick}>
         {props.text}
@@ -28,4 +28,4 @@ const categories = (props) => {
     )
   }
 
-export default categories;
+export default cockpit;

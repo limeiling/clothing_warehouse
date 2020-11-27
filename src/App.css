@@ -3,17 +3,15 @@
 }
 
 .details {
-  text-align: left;
   background: #fff;
-  position: left;
+  position: relative;
   border-radius: 5px;
-  padding: 10px;
+  padding: 20px;
   color: #333;
   width: 200px;
-  margin: 20px auto;
-  flex-basis: width;
-  background-color: rgb(39, 160, 39);
+  background-color:#d0d0d0;
   display: flex;
   flex-wrap: wrap;
   margin: 10px auto;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
