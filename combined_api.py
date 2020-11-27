@@ -110,46 +110,6 @@ def get(section):
     with lock:
         return jsonify(cache[section])
 
-'''
-    req = urllib.request.Request('https://bad-api-assignment.reaktor.com/products/' + section)
-    req.add_header('x-force-error-mode', 'no')
-
-    with urllib.request.urlopen(req) as url:
-        data = json.loads(url.read().decode())
-        jacket_set = set([x['manufacturer'] for x in data])
-
-        availabilities = {}
-        for manufacturer in jacket_set:
-            avaiReq = urllib.request.Request("https://bad-api-assignment.reaktor.com/availability/" + manufacturer)
-            avaiReq.add_header('x-force-error-mode', 'no')
-            
-            try:
-                with urllib.request.urlopen(avaiReq) as urlProducer:
-                    dataProducer = json.loads(urlProducer.read().decode())
-                
-                    response = dataProducer['response']
-                    if (response=="[]"):
-                        raise ResponseEmptyError('No Response')
-            except :
-                return "ResponseEmptyError"
-            else:
-                for product in response:
-                    print(product)
-                    product_id = str(product['id']).lower()
-                    m = re.search('<INSTOCKVALUE>(.+?)<\/INSTOCKVALUE>', product['DATAPAYLOAD'])
-                    if m:
-                        availabilities[manufacturer + '_' + product_id] = m.group(1)
-                    
-        for item in data:
-            product_id = str(item['id']).lower()
-            key = item['manufacturer'] + '_' + product_id
-            if key in availabilities:
-                item['availability'] = availabilities[key]
-            else:
-                item['availability'] = 'UNKNOWN'
-    return jsonify(data)
-    '''
-
 def run():
     print("Initializing with data")
     # Load initial data
